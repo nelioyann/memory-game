@@ -1,6 +1,58 @@
+body{
+  display: grid;
+  place-content: center;
+}
 .grid {
   display: flex;
   flex-wrap: wrap;
   width: 400px;
   height: 300px;
+}
+
+.emotionGrid{
+  display: grid;
+  width: max-content;
+  gap: 0.5em;
+  grid-template-columns: 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+}
+
+
+.memory__card{
+  perspective: 1000px;
+}
+
+.memory__card svg{
+  --side: 30px;
+  width: var(--side);
+  height: var(--side);
+}
+.memory__card .card__inner{
+  width:100%;
+  height:100%; 
+  /* position: relative; */
+  transform-style: preserve-3d;
+  /* box-shadow: 1px 3px 6px rgba(0,0, 0, 0.2); */
+  display: grid;
+  grid-template: 1fr / 1fr;
+  transition: transform 0.3s;
+  place-items: center;
+}
+.card__content, .card__title{ 
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+  /* position: absolute; */
+  
+  top: 0;
+  left: 0;
+  
+
+}
+
+.card__content{
+  transform: rotateY(180deg);
+}
+
+.memory__card.flipped .card__inner{
+  transform: rotateY(180deg);
 }
